@@ -21,6 +21,17 @@ namespace DotnetCtrfJsonReporter
                     Duration = totalMilliseconds
                 };
 
+                // Extract error information for failed tests
+                var errorInfo = testResult.Descendants().FirstOrDefault(d => d.Name.LocalName == "ErrorInfo");
+                if (errorInfo != null)
+                {
+                    var messageElement = errorInfo.Descendants().FirstOrDefault(d => d.Name.LocalName == "Message");
+                    var stackTraceElement = errorInfo.Descendants().FirstOrDefault(d => d.Name.LocalName == "StackTrace");
+                    
+                    testModel.Message = messageElement?.Value;
+                    testModel.StackTrace = stackTraceElement?.Value;
+                }
+
                 testModels.Add(testModel);
             }
 

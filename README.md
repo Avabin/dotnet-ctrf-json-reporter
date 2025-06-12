@@ -42,9 +42,9 @@ Explore more <a href="https://www.ctrf.io/integrations">integrations</a>
       "name": "mstest"
     },
     "summary": {
-      "tests": 1,
+      "tests": 2,
       "passed": 1,
-      "failed": 0,
+      "failed": 1,
       "pending": 0,
       "skipped": 0,
       "other": 0,
@@ -56,6 +56,13 @@ Explore more <a href="https://www.ctrf.io/integrations">integrations</a>
         "name": "ctrf should generate the same report with any tool",
         "status": "passed",
         "duration": 100
+      },
+      {
+        "name": "failing test example",
+        "status": "failed",
+        "duration": 50,
+        "message": "Expected: True\nActual: False",
+        "stackTrace": "   at FailingTest() in /path/to/test.cs:line 42"
       }
     ],
     "environment": {
@@ -129,11 +136,13 @@ dotnet tool run DotnetCtrfJsonReporter \
 
 The test object in the report includes the following [CTRF properties](https://ctrf.io/docs/schema/test):
 
-| Name       | Type   | Required | Details                                                                             |
-| ---------- | ------ | -------- | ----------------------------------------------------------------------------------- |
-| `name`     | String | Required | The name of the test.                                                               |
-| `status`   | String | Required | The outcome of the test. One of: `passed`, `failed`, `skipped`, `pending`, `other`. |
-| `duration` | Number | Required | The time taken for the test execution, in milliseconds.                             |
+| Name         | Type   | Required | Details                                                                             |
+| ------------ | ------ | -------- | ----------------------------------------------------------------------------------- |
+| `name`       | String | Required | The name of the test.                                                               |
+| `status`     | String | Required | The outcome of the test. One of: `passed`, `failed`, `skipped`, `pending`, `other`. |
+| `duration`   | Number | Required | The time taken for the test execution, in milliseconds.                             |
+| `message`    | String | Optional | Error message for failed tests. Only included when the test fails.                 |
+| `stackTrace` | String | Optional | Stack trace for failed tests. Only included when the test fails.                   |
 
 ## Support Us
 
