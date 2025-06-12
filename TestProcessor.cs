@@ -84,9 +84,6 @@ namespace DotnetCtrfJsonReporter
                     }
                 }
 
-                // Infer test type from method name or class name patterns
-                testModel.Type = InferTestType(testModel.Name, testModel.Suite);
-
                 testModels.Add(testModel);
             }
 
@@ -110,27 +107,6 @@ namespace DotnetCtrfJsonReporter
             }
             
             return (null, null);
-        }
-
-        private string? InferTestType(string? testName, string? suite)
-        {
-            if (string.IsNullOrEmpty(testName) && string.IsNullOrEmpty(suite))
-                return null;
-
-            var combinedText = $"{testName} {suite}".ToLowerInvariant();
-            
-            // Look for integration test indicators
-            if (combinedText.Contains("integration") || 
-                combinedText.Contains("e2e") || 
-                combinedText.Contains("endtoend") ||
-                combinedText.Contains("acceptance") ||
-                combinedText.Contains("functional"))
-            {
-                return "integration";
-            }
-            
-            // Default to unit test
-            return "unit";
         }
 
         private long ConvertToEpochMilliseconds(DateTime dateTime)

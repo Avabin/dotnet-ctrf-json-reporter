@@ -24,7 +24,6 @@ namespace DotnetCtrfJsonReporter
         public string? Trace { get; set; }
         public int? Line { get; set; }
         public string? RawStatus { get; set; }
-        public string? Type { get; set; }
         public string? FilePath { get; set; }
     }
 

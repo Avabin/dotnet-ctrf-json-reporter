@@ -60,7 +60,6 @@ Explore more <a href="https://www.ctrf.io/integrations">integrations</a>
         "stop": 1706828654600,
         "suite": "UnitTests",
         "rawStatus": "Passed",
-        "type": "unit",
         "filePath": "/path/to/test.cs"
       },
       {
@@ -74,7 +73,6 @@ Explore more <a href="https://www.ctrf.io/integrations">integrations</a>
         "trace": "   at FailingTest() in /path/to/test.cs:line 42",
         "line": 42,
         "rawStatus": "Failed",
-        "type": "unit",
         "filePath": "/path/to/test.cs"
       }
     ],
@@ -161,7 +159,6 @@ The test object in the report includes the following [CTRF properties](https://c
 | `trace`      | String | Optional | Stack trace for failed tests. Only included when the test fails.                   |
 | `line`       | Number | Optional | Line number where the test failure occurred (extracted from stack trace).          |
 | `rawStatus`  | String | Optional | Original TRX outcome status (e.g., "Passed", "Failed", "NotExecuted").             |
-| `type`       | String | Optional | Test type inferred from test/class naming patterns ("unit" or "integration").      |
 | `filePath`   | String | Optional | Path to the test source file (extracted from stack trace or codeBase).            |
 
 ## Support Us
