@@ -62,7 +62,7 @@ Explore more <a href="https://www.ctrf.io/integrations">integrations</a>
         "status": "failed",
         "duration": 50,
         "message": "Expected: True\nActual: False",
-        "stackTrace": "   at FailingTest() in /path/to/test.cs:line 42"
+        "trace": "   at FailingTest() in /path/to/test.cs:line 42"
       }
     ],
     "environment": {
@@ -142,7 +142,7 @@ The test object in the report includes the following [CTRF properties](https://c
 | `status`     | String | Required | The outcome of the test. One of: `passed`, `failed`, `skipped`, `pending`, `other`. |
 | `duration`   | Number | Required | The time taken for the test execution, in milliseconds.                             |
 | `message`    | String | Optional | Error message for failed tests. Only included when the test fails.                 |
-| `stackTrace` | String | Optional | Stack trace for failed tests. Only included when the test fails.                   |
+| `trace`      | String | Optional | Stack trace for failed tests. Only included when the test fails.                   |
 
 ## Support Us
 

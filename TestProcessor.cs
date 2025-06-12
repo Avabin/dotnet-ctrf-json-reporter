@@ -29,7 +29,7 @@ namespace DotnetCtrfJsonReporter
                     var stackTraceElement = errorInfo.Descendants().FirstOrDefault(d => d.Name.LocalName == "StackTrace");
                     
                     testModel.Message = messageElement?.Value;
-                    testModel.StackTrace = stackTraceElement?.Value;
+                    testModel.Trace = stackTraceElement?.Value;
                 }
 
                 testModels.Add(testModel);

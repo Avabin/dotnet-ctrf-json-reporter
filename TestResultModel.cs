@@ -18,7 +18,7 @@ namespace DotnetCtrfJsonReporter
         public string Status { get; set; }
         public long Duration { get; set; }
         public string? Message { get; set; }
-        public string? StackTrace { get; set; }
+        public string? Trace { get; set; }
     }
 
     public class ToolModel
